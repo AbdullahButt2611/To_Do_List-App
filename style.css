@@ -1,0 +1,74 @@
+/* Importing Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    overflow: hidden;
+    background:  #c2e2d5;
+}
+
+.wrapper{
+    background: #fff;
+    max-width: 405px;
+    margin: 135px auto;
+    border-radius: 7px;
+    padding: 28px 0;
+}
+
+.task-input
+{
+    height: 52px;
+    padding: 0 25px;
+    position: relative;
+}
+
+.task-input img{
+    position: absolute;
+    top: 50%;
+    transform: translate(17px, -50%);
+}
+
+.task-input input{
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    outline: none;
+    padding: 0 20px 0 53px;
+}
+
+.task-input input::placeholder{
+    color: #bfbfbf;
+}
+
+.controls{
+    padding: 18px 25px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters span{
+    margin: 0 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.controls .clear-btn{
+    outline: none;
+    border: none;
+    background: #c2e2d5;
+    color: #FFf;
+    padding: 7px 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}

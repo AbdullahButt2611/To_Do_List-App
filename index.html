@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link for Box Icons Import -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link for Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>To Do List | MAB CORP</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="task-input">
+            <img src="bars-icon.svg" alt="Bars">
+            <input type="text" placeholder="Add a new task">
+        </div>
+
+        <div class="controls">
+            <div class="filters">
+                <span id="all">All</span>
+                <span id="pending">Pending</span>
+                <span id="completed">Completed</span>
+            </div>
+
+            <button class="clear-btn">Clear All</button>
+        </div>
+
+        <ul class="task-box">
+            <li class="task">
+                <label for="1">
+                    <input type="checkbox" id="1">
+                    <p>Renew Gym Membership</p>
+                </label>
+
+                <div class="settings">
+                    <i class='bx bx-dots-horizontal-rounded'></i>
+                </div>
+            </li>
+
+            <li class="task">
+                <label for="1">
+                    <input type="checkbox" id="1">
+                    <p>Create a Video for Youtube</p>
+                </label>
+
+                <div class="settings">
+                    <i class='bx bx-dots-horizontal-rounded'></i>
+                </div>
+            </li>
+
+            <li class="task">
+                <label for="1">
+                    <input type="checkbox" id="1">
+                    <p>Discuss new Project with team</p>
+                </label>
+
+                <div class="settings">
+                    <i class='bx bx-dots-horizontal-rounded'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
