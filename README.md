@@ -22,9 +22,12 @@ Following are some of the new features and learning encountered while creating t
 <br><br>
 
 ## Resources
-<br>
 Follwing resources have been used in maing this project:
-- 
+<br>
+- [BrandCrowd](https://www.brandcrowd.com/) for making the logo of this web application.
+- [FavIconConverter](https://favicon.io/favicon-converter/), to convert the image into the favicon.
+- [Box Icons](https://boxicons.com/) for importing icons into the application.
+- [Google Fonts](https://fonts.google.com/) is used for importing the fonts from **Poppins Family**.
 <br><br>
 
 ## Demo
@@ -37,9 +40,11 @@ Follwing resources have been used in maing this project:
 <br><br>
 
 ## Technology Stack
-<br>
+
 Follwing technologies have been used at the core of this application to make it stand in the market place:
-- 
+<br>
+- HTML
+- CSS
 <br><br>
 
 ## Advancement
