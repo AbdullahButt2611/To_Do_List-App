@@ -110,6 +110,10 @@ body{
     margin-right: 12px;
 }
 
+.task label p.checked{  
+    text-decoration: line-through;
+}
+
 .task .settings{
     cursor: pointer;
     position: relative;
