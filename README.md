@@ -13,12 +13,18 @@
 <br>
 
 ## Description
+<p align = "justify">
+Once the user gets into this app. The user might not have any recently saved tasks. In order to enter the new task into the todo list. The user simply have to click on the input section and start typing. Once the user has typed everything, simply press the <strong>Enter Key</strong>. The data will be auomatically saved into the list of tasks and will be displayed on the page along with other tasks (if any exists). Along with the data, a number of functionalities will be provided to the user which we will talk about later. In the start, the status ofd the task is set to <strong>Pending</strong> which means this task needs to be done. Once the user has completed the task. In order to verify it, the user simply has to check the checkbox of the task. The <strong>Strike through</strong> line will indicate that this task has been completed by the user and in the backend, the status is changed from pending to <strong>Completed</strong>. <br>
+
+</p>
 <br><br>
 
 ## Features
 <br>
 Following are some of the new features and learning encountered while creating this amazing project:
--
+
+- The data is being saved and retrieved from the **Local Storage** which means the data is not lost even after the page refresh.
+- The is inserted on pressing the **Enter Key**, so no kind of button is needed here to insert the data.
 <br><br>
 
 ## Resources
@@ -37,6 +43,7 @@ Follwing resources have been used in maing this project:
 <br><br>
 
 ## GUI
+![Demo](demo.png)
 <br><br>
 
 ## Technology Stack
@@ -45,6 +52,8 @@ Follwing technologies have been used at the core of this application to make it 
 <br>
 - HTML
 - CSS
+- JavaScript
+- Browser's Local Storage
 <br><br>
 
 ## Advancement
