@@ -8,31 +8,35 @@ const taskBox = document.querySelector(".task-box");
 //Else fetching the data from local storage
 let todos = JSON.parse(localStorage.getItem("todo-list") || "[]")
 
+let editId;
+let isEditedTask = false;
 
 
 
 
 function showTodo(){
 
-    // if todos status is completed set the isCompleted Status to checked.
-    let isCompleted = todos.status == "completed" ? "checked" : ""; 
-
+    
     let li = "";
     
     if(todos)
     {
         todos.forEach((todo, id) => {
+
+            // if todos status is completed set the isCompleted Status to checked.
+            let isCompleted = todo.status == "completed" ? "checked" : ""; 
+
             li += `<li class="task">
                         <label for="${id}">
-                            <input onclick = "updateStatus(this)" type="checkbox" id="${id}">
-                            <p>${todo.name}</p>
+                            <input onclick = "updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+                            <p class = "${isCompleted}">${todo.name}</p>
                         </label>
     
                         <div class="settings">
-                            <i class='bx bx-dots-horizontal-rounded'></i>
+                            <i onclick = "showMenu(this)" class='bx bx-dots-horizontal-rounded'></i>
                             <ul class="task-menu">
-                                <li><i class='bx bx-pencil'></i>Edit</li>
-                                <li><i class='bx bx-trash' ></i>Delete</li>
+                            <li onclick='editTask(${id}, "${todo.name}")'><i class="uil uil-pen"></i>Edit</li>
+                                <li onclick = "deleteTask(${id})" ><i class='bx bx-trash' ></i>Delete</li>
                             </ul>
                         </div>
                     </li>`;
@@ -43,6 +47,68 @@ function showTodo(){
 }
 
 showTodo();
+
+
+
+
+function showMenu(selectedTask)
+{
+
+    // Getting Task Menu Div
+    let TaskMenu = selectedTask.parentElement.lastElementChild;
+    TaskMenu.classList.add("show");
+
+    document.addEventListener("click", e => {
+
+        // Removing show class from task menu on document click
+        if(e.target.tagName != "I" || e.target != selectedTask){
+            TaskMenu.classList.remove("show");
+        }
+
+    });
+
+}
+
+
+
+
+
+
+
+
+function deleteTask(deleteId){
+
+    // Removing selected tasks from array/todos
+    todos.splice(deleteId,1);
+    localStorage.setItem("todo-list",JSON.stringify(todos));
+    showTodo();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function editTask(taskId, taskName){
+
+    editId = taskId;
+    isEditedTask = true;
+    taskInput.value = taskName;
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -91,14 +157,21 @@ taskInput.addEventListener("keyup", e =>{
 
     if(e.key == "Enter" && userTask){                   // If the user has pressed Enter and the value is not null
 
-
+        if(!isEditedTask)                               //If isEdited is not true
+        {
+            let taskInfo = {name: userTask, status: "pending"};
+    
+            todos.push(taskInfo);   //Adding new task to todos
+        }
+        else
+        {
+            isEditedTask = false;
+            todos[editId].name = userTask;
+        }
         
 
         taskInput.value = "";
 
-        let taskInfo = {name: userTask, status: "pending"};
-
-        todos.push(taskInfo);   //Adding new task to todos
         localStorage.setItem("todo-list",JSON.stringify(todos));
 
         showTodo();

@@ -81,6 +81,11 @@ body{
     border-radius: 4px;
     cursor: pointer;
     font-size: 13px;
+    transition: 0.4s;
+}
+
+.controls .clear-btn:hover{
+    background: #8cccb2;
 }
 
 .task-box{
@@ -133,7 +138,7 @@ body{
     transform-origin: top right;
 }
 
-.settings:hover .task-menu{
+.settings .task-menu.show{
     transform: scale(1);
 }
 
