@@ -1,5 +1,7 @@
 const taskInput = document.querySelector(".task-input input");
 const taskBox = document.querySelector(".task-box");
+const clearAll = document.querySelector(".clear-btn");
+const filters = document.querySelectorAll(".filters span");
 
 
 
@@ -12,9 +14,21 @@ let editId;
 let isEditedTask = false;
 
 
+// Changing the color of heading on click action
+filters.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        document.querySelector("span.active").classList.remove("active");
+        btn.classList.add("active");
+        showTodo(btn.id)
+
+    });
+
+});
 
 
-function showTodo(){
+function showTodo(filter){
 
     
     let li = "";
@@ -25,28 +39,32 @@ function showTodo(){
 
             // if todos status is completed set the isCompleted Status to checked.
             let isCompleted = todo.status == "completed" ? "checked" : ""; 
+            if(filter == todo.status || filter == "all"){
 
-            li += `<li class="task">
-                        <label for="${id}">
-                            <input onclick = "updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
-                            <p class = "${isCompleted}">${todo.name}</p>
-                        </label>
-    
-                        <div class="settings">
-                            <i onclick = "showMenu(this)" class='bx bx-dots-horizontal-rounded'></i>
-                            <ul class="task-menu">
-                            <li onclick='editTask(${id}, "${todo.name}")'><i class="uil uil-pen"></i>Edit</li>
-                                <li onclick = "deleteTask(${id})" ><i class='bx bx-trash' ></i>Delete</li>
-                            </ul>
-                        </div>
-                    </li>`;
+                li += `<li class="task">
+                            <label for="${id}">
+                                <input onclick = "updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+                                <p class = "${isCompleted}">${todo.name}</p>
+                            </label>
+        
+                            <div class="settings">
+                                <i onclick = "showMenu(this)" class='bx bx-dots-horizontal-rounded'></i>
+                                <ul class="task-menu">
+                                <li onclick='editTask(${id}, "${todo.name}")'><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick = "deleteTask(${id})" ><i class='bx bx-trash' ></i>Delete</li>
+                                </ul>
+                            </div>
+                        </li>`;
+            }
+
         });
     }
 
-    taskBox.innerHTML= li;
+    // If it isnt empty then it will show the elements else, a message will be prompted
+    taskBox.innerHTML= li || `<span>You dont have any task here</span>`;
 }
 
-showTodo();
+showTodo("all");
 
 
 
@@ -81,10 +99,24 @@ function deleteTask(deleteId){
     // Removing selected tasks from array/todos
     todos.splice(deleteId,1);
     localStorage.setItem("todo-list",JSON.stringify(todos));
-    showTodo();
+    showTodo("all");
 
 }
 
+
+
+
+
+
+
+
+
+clearAll.addEventListener("click", () => {
+    // Removing all items from array/todos
+    todos.splice(0, todos.length);
+    localStorage.setItem("todo-list",JSON.stringify(todos));
+    showTodo("all");
+})
 
 
 
@@ -122,7 +154,6 @@ function updateStatus(selectedTask){
 
     // Getting paragraph that contains task name.
     let taskName = selectedTask.parentElement.lastElementChild;
-    console.log(taskName)
     
     if(selectedTask.checked)
     {
@@ -141,6 +172,7 @@ function updateStatus(selectedTask){
 
     localStorage.setItem("todo-list",JSON.stringify(todos));
 
+   
 }
 
 
@@ -174,6 +206,6 @@ taskInput.addEventListener("keyup", e =>{
 
         localStorage.setItem("todo-list",JSON.stringify(todos));
 
-        showTodo();
+        showTodo("all");
     }
 });
