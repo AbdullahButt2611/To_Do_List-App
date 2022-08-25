@@ -100,6 +100,7 @@ function deleteTask(deleteId){
     todos.splice(deleteId,1);
     localStorage.setItem("todo-list",JSON.stringify(todos));
     showTodo("all");
+    filters[0].click();
 
 }
 
@@ -207,5 +208,6 @@ taskInput.addEventListener("keyup", e =>{
         localStorage.setItem("todo-list",JSON.stringify(todos));
 
         showTodo("all");
+        filters[0].click();
     }
 });
