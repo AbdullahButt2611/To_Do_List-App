@@ -112,6 +112,7 @@ body{
 .task label input{
     margin-top: 6px;
     margin-right: 12px;
+    cursor: pointer;
 }
 
 .task label p.checked{  
