@@ -69,6 +69,9 @@ Follwing technologies have been used at the core of this application to make it 
 > The user pressent in another filter when enters the data, it is displayed in the in the same block rather than in all categories, this should be handled wisely.
 
 This has also been handled by myself. 
+
+> The scroll activity has been enabled, the user can add as many tasks as he/she wants to.
+> The check boxes have now now the pointer effect enabled. 
 <br><br>
 
 ## Deployment Details
